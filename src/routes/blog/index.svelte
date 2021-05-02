@@ -45,6 +45,11 @@
     justify-content: start;
     background-color: #ff3e00;
     min-width: 12rem;
+    transition: transform 100ms;
+  }
+
+  .card:active {
+    transform: scale(0.95);
   }
 
   .title, .description {
