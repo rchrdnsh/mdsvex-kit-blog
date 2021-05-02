@@ -1,38 +1,27 @@
-# create-svelte
+# How to enable the error
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+1. clone and run the repo and everything works fine...
+2. Go to `src/content/post-one.md` and  uncomment the following:
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
+```html
+<!-- <script context='module'>
+  import Clock from '$lib/Clock.svelte'
+  metadata.icon = Clock;
+</script> -->
 ```
 
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+then run again, or keep running...you should then get this error:
 
 ```bash
-npm run dev
+[vite] Error when evaluating SSR module /src/content/post-one.md:
+ReferenceError: metadata is not defined
+    at post-one.md:3:10
+    at instantiateModule (/Users/rchrdnsh/Code/Svelte/mdsvex-kit-blog/node_modules/vite/dist/node/chunks/dep-994e0558.js:69063:166)
+metadata is not defined
+ReferenceError: metadata is not defined
+    at post-one.md:3:10
+    at instantiateModule (/Users/rchrdnsh/Code/Svelte/mdsvex-kit-blog/node_modules/vite/dist/node/chunks/dep-994e0558.js:69063:166)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+I don't know why or what's going on, but thank you in advance for taking a look XD
